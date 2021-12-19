@@ -1,42 +1,84 @@
 :root {
-    --bg-color-light: rgb(243, 243, 243);
-    --text-color-light: rgb(31, 31, 31);
-    
-    --bg-color-dark: rgb(31, 31, 31);
-    --text-color-dark: rgb(243, 243, 243);
+  --bg-color-light: rgb(243, 243, 243);
+  --text-color-light: rgb(31, 31, 31);
 
-    --bg-color: var(--bg-color-light);
-    --text-color: var(--text-color-light);
+  --bg-color-dark: rgb(31, 31, 31);
+  --text-color-dark: rgb(243, 243, 243);
+
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  transition: 70ms;
 }
 
 body {
-    height: 80vh;
+  height: 100vh;
 
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 button {
-    font-size: 1.5rem;
-    border: 2px solid var(--text-color);
-    background-color: var(--text-color);
-    color: var(--bg-color);
+  font-size: 1.5rem;
+  border: 2px solid var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
 
-    padding: .75rem 1.5rem;
-    border-radius: 2px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
 }
 button:hover {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.switch {
+  display: inline-flex;
+  margin: 10px;
+}
+.switch input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.switch input[type="checkbox"]:checked + label::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+.switch label {
+  cursor: pointer;
+  width: 48px;
+  height: 24px;
+  background: var(--text-color);
+  display: block;
+  border-radius: 24px;
+  position: relative;
+}
+.switch label::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-color);
+  border-radius: 16px;
+  transition: 0.3s;
 }
